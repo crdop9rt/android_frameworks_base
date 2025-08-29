@@ -240,9 +240,8 @@ public final class PixelPropsUtils {
         propsToChangeBS4.put("MODEL", "2SM-X706B");
         propsToChangeBS4.put("MANUFACTURER", "blackshark");
         propsToChangeS24U = new HashMap<>();
-        propsToChangeS24U.put("BRAND", "SAMSUNG");
-        propsToChangeS24U.put("DEVICE", "S24 ULTRA");
-        propsToChangeS24U.put("MANUFACTURER", "SM-S928B");
+        propsToChangeS24U.put("BRAND", "samsung");
+        propsToChangeS24U.put("MANUFACTURER", "samsung");
         propsToChangeS24U.put("MODEL", "SM-S928B");
         
     }
