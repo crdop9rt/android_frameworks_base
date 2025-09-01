@@ -6554,9 +6554,10 @@ public final class ActivityRecord extends WindowToken {
     }
 
     protected void setActivityBoost() {
-        if (mPowerManagerInternal != null) {
+        if (mPowerManagerInternal != null && mAtmService.mContext.getResources().getBoolean(
+                com.android.internal.R.bool.config_enablePerfBoosts)) {
             mPowerManagerInternal.setPowerBoost(Boost.INTERACTION, 80);
-            mPowerManagerInternal.setPowerBoost(Boost.DISPLAY_UPDATE_IMMINENT, 80);
+           mPowerManagerInternal.setPowerBoost(Boost.DISPLAY_UPDATE_IMMINENT, 80);
         }
     }
 

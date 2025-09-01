@@ -7511,4 +7511,7 @@
     <!-- Biometrics fingerprint frr notification target activity component name, it shall be customized by OEMs -->
     <string translatable="false" name="config_fingerprintFrrTargetComponent"></string>
 
+    <!-- Master toggle for all PowerHAL boosts (scroll, transition, activity, exit animation) -->
+    <bool name="config_enablePerfBoosts">true</bool>
+
 </resources>

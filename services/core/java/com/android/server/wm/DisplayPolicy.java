@@ -705,16 +705,19 @@ public class DisplayPolicy {
         mHandler.post(mForceShowNavBarSettingsObserver::register);
     }
 
-    private void doBoost(int duration) {
-        if (mService.mPowerManagerInternal != null) {
-            mService.mPowerManagerInternal.setPowerBoost(
-                    Boost.INTERACTION, duration);
-            mService.mPowerManagerInternal.setPowerBoost(
-                    Boost.DISPLAY_UPDATE_IMMINENT, duration);
-        }
-    }
+   private void doBoost(int duration) {
+       if (mService.mPowerManagerInternal != null &&
+           mService.mContext.getResources().getBoolean(
+            	com.android.internal.R.bool.config_enablePerfBoosts)) {
 
-    private void updateForceShowNavBarSettings() {
+           mService.mPowerManagerInternal.setPowerBoost(
+                Boost.INTERACTION, duration);
+           mService.mPowerManagerInternal.setPowerBoost(
+                Boost.DISPLAY_UPDATE_IMMINENT, duration);
+       }
+   }
+
+   private void updateForceShowNavBarSettings() {
         synchronized (mLock) {
             mForceShowNavigationBarEnabled =
                     mForceShowNavBarSettingsObserver.isEnabled();

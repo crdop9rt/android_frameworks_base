@@ -368,7 +368,9 @@ class AsyncRotationController extends FadeAnimationController implements Consume
     }
 
     private void setActivityBoost() {
-        if (mPowerManagerInternal != null) {
+        if (mPowerManagerInternal != null &&
+            mService.mContext.getResources().getBoolean(
+                com.android.internal.R.bool.config_enablePerfBoosts)) {
             mPowerManagerInternal.setPowerBoost(Boost.INTERACTION, 80);
             mPowerManagerInternal.setPowerBoost(Boost.DISPLAY_UPDATE_IMMINENT, 80);
         }

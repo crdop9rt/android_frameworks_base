@@ -751,7 +751,10 @@ class Transition implements BLASTSyncEngine.TransactionReadyListener {
             return;
         }
         mState = STATE_STARTED;
-        if (mPowerManagerInternal != null && mType == TRANSIT_CHANGE) {
+        if (mPowerManagerInternal != null && mType == TRANSIT_CHANGE &&
+            mService.mContext.getResources().getBoolean(
+            com.android.internal.R.bool.config_enablePerfBoosts)) {
+
             mPowerManagerInternal.setPowerBoost(Boost.INTERACTION, 80);
             mPowerManagerInternal.setPowerBoost(Boost.DISPLAY_UPDATE_IMMINENT, 80);
         }
